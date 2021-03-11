@@ -1,0 +1,51 @@
+<style>
+    body {
+        position: relative;
+    }
+    section {
+        margin: 100px 0;
+        position: relative;
+    }
+    h4 {
+        color: rgb(184, 3, 3);
+        margin-bottom: 30px;
+    }
+    .delete-container {
+        width: 500px;
+        margin: auto;
+    }
+    table {
+        margin-bottom: 30px;
+    }
+    th {
+        padding-right: 30px;
+    }
+
+</style>
+
+<section>
+    <div class="delete-container">
+
+        <h3>Delete {{page}}</h3>
+        <h4>Are you sure you want to delete this ?</h4>
+            <table>
+                <tbody>
+                    {{#each deldata as |del|}}
+                        {{!-- {{#each del }} --}}
+                        <tr>
+                            <th>{{del.[0]}}</th>
+                            <td>{{del.[1]}}</td> 
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+        <form action="{{urlOptions.0.link}}{{id}}" method="post">
+            <button  class="btn btn-secondary my-2 mr-4" >{{urlOptions.0.text}}</button>
+            <button type="reset" class="btn btn-secondary my-2" ><a href="{{urlOptions.1.link}}"  style="text-decoration: none; color:white;">{{urlOptions.1.text}}</a></button>
+
+        </form>
+
+        {{!-- <a href="{{urlOptions.0.link}}{{id}}" style="color:white; text-decoration:none"><button  class="btn btn-secondary my-2" >{{urlOptions.0.text}}</button></a> --}}
+    </div>
+</section>

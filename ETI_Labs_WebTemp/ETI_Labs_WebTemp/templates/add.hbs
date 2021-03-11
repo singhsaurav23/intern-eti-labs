@@ -1,0 +1,36 @@
+<style>
+    body{
+        margin:0;
+        position: relative;
+        overflow-x: hidden;
+    }
+    .form-container{
+        margin: 100px 0;
+        position: relative;
+
+    }
+    .form-style {
+        width: 40%;
+        margin: auto;
+    }
+</style>
+
+<div class="form-container" id="add-form" >
+    <form action="{{urlOptions.0.link}}" method="POST" autocomplete="off" style="width: 50%;" class="form-style" id="form1">
+        {{!-- <input id="id" type="hidden" name="_id" value="{{machine._id}}">  --}}
+        {{#each fieldData as |field| }}
+            
+                <div class="form-group" i="{{@index}}"> 
+                    <label>{{field.[3]}}</label>
+                    <input type="{{field.[0]}}" class="form-control" name="{{field.[1]}}" placeholder="{{field.[3]}}" id="{{field.[2]}}" value="" required>
+                    
+                </div> 
+            
+        {{/each}}
+        
+        <div class="form-group">
+            <button type="submit" class="btn btn-secondary my-2"  id="subbtn">{{urlOptions.0.text}}</button>
+            <button type="reset" class="btn btn-secondary my-2"  ><a href="{{urlOptions.1.link}}"  style="text-decoration: none; color:white">{{urlOptions.1.text}}</a></button>
+        </div>
+    </form>
+</div>  

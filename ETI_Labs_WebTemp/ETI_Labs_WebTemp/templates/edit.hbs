@@ -1,0 +1,57 @@
+<style>
+    body{
+        position: relative;
+        overflow-x: hidden; 
+    }
+    .form-container{
+        margin: 100px 0;
+        position: relative;
+    }
+    .inner-container {
+        margin: auto;
+        width: 40% ;
+    }
+    
+    .form-style {
+        margin: auto;
+    }
+</style>
+
+
+
+    <div class="form-container" id="add-form" >
+        
+        <div class="inner-container">
+            <h3>Edit {{page}}</h3>
+        
+            <div class="fixedData">
+                {{#each fixedData as |list| }}
+                    <div>
+                        {{#each list}}
+                            <span>{{this}}</span>
+                        {{/each}}
+                    </div>
+                {{/each}}
+            </div>
+            
+            
+            <form action="{{urlOptions.0.link}}{{newDoc.[0]}}" method="POST" autocomplete="off" class="form-style" id="form1">
+                <input id="id" type="hidden" name="_id" value="{{newDoc.[0]}}">
+
+                {{#each fieldData as |field| }}
+                    
+                        <div class="form-group" i="{{@index}}"> 
+                            <label>{{field.[4]}}</label>
+                            <input type="{{field.[0]}}" class="form-control" name="{{field.[1]}}" placeholder="{{field.[4]}}" id="{{field.[2]}}" value="{{field.[3]}}" >
+                           
+                        </div> 
+                    
+                {{/each}}
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-secondary my-2"  id="subbtn">{{urlOptions.0.text}}</button>
+                    <button type="reset" class="btn btn-secondary my-2"  ><a href="{{urlOptions.1.link}}"  style="text-decoration: none; color: white">{{urlOptions.1.text}}</a></button>
+                </div>
+            </form>
+        </div>
+    </div>

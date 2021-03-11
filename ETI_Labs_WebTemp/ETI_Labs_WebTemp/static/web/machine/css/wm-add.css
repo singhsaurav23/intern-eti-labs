@@ -1,0 +1,18 @@
+body{
+    margin: 0;
+    background-color:white;
+}
+
+.form-style {
+    margin: auto;
+}
+
+.form-container {
+    margin-bottom: 80px;
+}
+
+
+
+button{
+    color: white;
+}
